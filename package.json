@@ -1,0 +1,20 @@
+{
+  "name": "sendZip",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "gridfs-stream": "^1.1.1",
+    "mongodb": "5.9.1",
+    "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1",
+    "multer-gridfs-storage": "^5.0.2",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^3.1.9"
+  },
+  "resolutions": {
+    "multer-gridfs-storage/mongodb": "^5.9.1"
+  }
+}
