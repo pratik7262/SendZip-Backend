@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://sendzip-a03d1.web.app",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     exposedHeaders: ["Content-Disposition"],
