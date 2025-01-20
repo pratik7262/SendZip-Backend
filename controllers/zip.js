@@ -16,6 +16,8 @@ const uploadZip = async (req, res) => {
       uploadDate: new Date(),
     };
 
+    console.log("File Uploaded Sussessfully " + req.file.filename);
+
     // Store metadata in a collection (if needed)
     await db.collection("uploadsMetadata").insertOne(metadata);
 
@@ -24,6 +26,7 @@ const uploadZip = async (req, res) => {
       metadata,
     });
   } catch (error) {
+    console.log("File Uploading failed");
     console.error("Error uploading file:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
