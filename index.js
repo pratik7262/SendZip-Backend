@@ -21,9 +21,7 @@ app.use(express.json());
 
 app.use("/api/zip/", initGridFS, zipRoutes);
 
-app.get("/", (req, res) => {
-  res.send("<h1>Backend For SendZip</h1>");
-})(async () => {
+(async () => {
   try {
     await connectToDB(); // Connect to MongoDB
     app.listen(PORT, () => {
