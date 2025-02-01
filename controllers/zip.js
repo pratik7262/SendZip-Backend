@@ -34,19 +34,13 @@ const uploadZip = async (req, res) => {
 
 const downloadZip = async (req, res) => {
   try {
-    const shouldDelete = req.query.delete === "true"; // Read the 'delete' flag from query parameters
-    const db = await connectToDB(); // Connect to the database
-    // const bucket = new GridFSBucket(db, { bucketName: "uploads" }); // Create a new GridFS bucket instance
-    // console.log(req.bucket);
-    // console.log(bucket);
+    const shouldDelete = req.query.delete === "true";
+    const db = await connectToDB();
     console.log("Connected to database. Checking for files...");
 
     // Query to find files
     const files = await req.bucket.find({}).sort({ uploadDate: -1 }).toArray();
-    // .find({})
-    // .sort({ uploadDate: -1 })
-    // .limit(1)
-    // .toArray();
+
     console.log("Files found in database:", files);
 
     if (!files.length) {
@@ -56,7 +50,7 @@ const downloadZip = async (req, res) => {
         .json({ message: "No files found in the database" });
     }
 
-    const file = files[0]; // Get the most recent file
+    const file = files[0];
 
     // Set the content type and stream the file to the client
     res.set("Content-Type", file.contentType);
@@ -70,7 +64,6 @@ const downloadZip = async (req, res) => {
       console.log(`File ${file.filename} streamed successfully.`);
       const fileId = file._id;
 
-      // If the 'delete' flag is true, delete the file after streaming
       if (shouldDelete === "true") {
         downloadStream.on("end", async () => {
           try {

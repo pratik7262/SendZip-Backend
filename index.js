@@ -1,6 +1,7 @@
 const express = require("express");
 const connectToDB = require("./db");
 const zipRoutes = require("./routes/zip");
+const textRoutes = require("./routes/text");
 const initGridFS = require("./middleware/gridFS");
 const cors = require("cors");
 
@@ -20,6 +21,7 @@ app.use(
 app.use(express.json());
 
 app.use("/api/zip/", initGridFS, zipRoutes);
+app.use("/api/text", textRoutes);
 
 (async () => {
   try {

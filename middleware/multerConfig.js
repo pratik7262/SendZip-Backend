@@ -4,7 +4,6 @@ const { GridFsStorage } = require("multer-gridfs-storage");
 const mongoURI =
   "mongodb+srv://pratik:mBM1bvIrqh3NKVVM@cluster0.4jcyp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-// GridFS Storage configuration
 const storage = new GridFsStorage({
   url: mongoURI,
   options: { useNewUrlParser: true, useUnifiedTopology: true },
