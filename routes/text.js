@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.post("/sendText", sendText);
 
-router.get("/getText", getText);
+router.get("/getText/:code", getText);
 
 module.exports = router;
