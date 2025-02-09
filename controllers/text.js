@@ -42,12 +42,13 @@ const getText = async (req, res) => {
       .next();
 
     if (!text) {
-      return res
-        .status(404)
-        .json({ message: "No texts found please enter correct code!!!" });
+      return res.status(200).json({
+        success: false,
+        message: "No texts found!!!",
+      });
     }
 
-    return res.status(200).json({ text: text.text });
+    return res.status(200).json({ success: true, text: text.text });
   } catch (error) {
     console.error("Error fetching text:", error);
     return res.status(500).json({ message: "Internal Server Error" });
