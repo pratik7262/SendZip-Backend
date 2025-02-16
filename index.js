@@ -4,6 +4,7 @@ const zipRoutes = require("./routes/zip");
 const textRoutes = require("./routes/text");
 const initGridFS = require("./middleware/gridFS");
 const cors = require("cors");
+const { originURL } = require("./constants/urls");
 
 const PORT = process.env.PORT || 5000;
 
@@ -11,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://sendzip-a03d1.firebaseapp.com",
+    origin: originURL,
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     exposedHeaders: ["Content-Disposition"],
