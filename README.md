@@ -5,7 +5,12 @@ Files are stored temporarily in **MongoDB** and automatically deleted after a se
 
 ---
 
+# Frontend Repo
+
+https://github.com/pratik7262/SendZip-Frontend
+
 ## 🚀 Features
+
 - Upload `.zip` files from any device
 - Store files temporarily in MongoDB using GridFS
 - Automatic file deletion after expiry
@@ -16,6 +21,7 @@ Files are stored temporarily in **MongoDB** and automatically deleted after a se
 ---
 
 ## 🛠 Tech Stack
+
 - **Node.js** (Runtime)
 - **Express.js** (Web framework)
 - **MongoDB** with **GridFS** (File storage)
@@ -27,6 +33,7 @@ Files are stored temporarily in **MongoDB** and automatically deleted after a se
 ---
 
 ## 📂 Project Structure
+
 ```
 backend/
 │── src/
@@ -51,17 +58,20 @@ backend/
 ## 📦 Installation
 
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone https://github.com/your-username/sendzip-backend.git
 cd sendzip-backend
 ```
 
 ### 2️⃣ Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 3️⃣ Setup environment variables
+
 Create a `.env` file in the root directory:
 
 ```
@@ -71,51 +81,21 @@ FILE_EXPIRY_HOURS=24
 ```
 
 ### 4️⃣ Start the server
+
 ```bash
 npm run dev
 ```
 
 ---
 
-## 🔌 API Endpoints
-
-### 📤 Upload a file
-```
-POST /api/files/upload
-Body: multipart/form-data
-Field: file — .zip file
-```
-
-### 📥 Download a file
-```
-GET /api/files/:id
-```
-
-### ❌ Delete a file
-```
-DELETE /api/files/:id
-```
-
----
-
-## ⏳ Automatic File Deletion
-A cron job runs every hour to delete expired files from MongoDB based on the `FILE_EXPIRY_HOURS` setting.
-
----
-
-## 🧪 Testing
-```bash
-npm test
-```
-
----
-
 ## 📜 License
+
 MIT License © 2025
 
 ---
 
 ## ✍ Author
+
 **Pratik Shinde**  
 🌐 [Portfolio Website](https://your-portfolio-link.com)  
 💻 [GitHub](https://github.com/your-github-username)
