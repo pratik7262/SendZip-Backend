@@ -1,83 +1,121 @@
-# backend
+# 📦 SendZip Backend
 
-Backend for NoteShare — a real-time note-sharing app that enables users to create, edit, and share notes across devices.
+Backend API for **SendZip** — a service that allows users to transfer `.zip` files between devices online.  
+Files are stored temporarily in **MongoDB** and automatically deleted after a set duration.
 
-## Features
+---
 
-- RESTful API built with Node.js and Express.js.
-- MongoDB for persistent data storage.
-- WebSocket integration for real-time note updates.
-- Secure authentication with JWT.
-- CORS configuration for cross-origin requests.
+## 🚀 Features
+- Upload `.zip` files from any device
+- Store files temporarily in MongoDB using GridFS
+- Automatic file deletion after expiry
+- REST API endpoints for uploading, downloading, and deleting files
+- Secure file handling with size limits
+- CORS-enabled for frontend access
 
-## Tech Stack
+---
 
-- **Node.js** — JavaScript runtime.
-- **Express.js** — Web framework.
-- **MongoDB** — NoSQL database.
-- **Mongoose** — MongoDB object modeling.
-- **Socket.io** — Real-time communication.
+## 🛠 Tech Stack
+- **Node.js** (Runtime)
+- **Express.js** (Web framework)
+- **MongoDB** with **GridFS** (File storage)
+- **Mongoose** (ODM)
+- **Multer** (File uploads)
+- **dotenv** (Environment variables)
+- **Node Cron** (Scheduled deletion)
 
-## Getting Started
+---
 
-### Prerequisites
+## 📂 Project Structure
+```
+backend/
+│── src/
+│   ├── config/
+│   │   └── db.js               # MongoDB connection
+│   ├── routes/
+│   │   └── fileRoutes.js       # API endpoints
+│   ├── controllers/
+│   │   └── fileController.js
+│   ├── middlewares/
+│   │   └── upload.js           # Multer config
+│   ├── utils/
+│   │   └── deleteExpiredFiles.js
+│   └── app.js
+│── .env
+│── package.json
+│── README.md
+```
 
-- [Node.js](https://nodejs.org/) (v16 or above)
-- [MongoDB](https://www.mongodb.com/try/download/community)
-- npm (comes with Node.js)
+---
 
-### Installation
+## 📦 Installation
 
+### 1️⃣ Clone the repository
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/backend.git
+git clone https://github.com/your-username/sendzip-backend.git
+cd sendzip-backend
+```
 
-# Navigate to the project directory
-cd backend
-
-# Install dependencies
+### 2️⃣ Install dependencies
+```bash
 npm install
 ```
 
-### Environment Variables
+### 3️⃣ Setup environment variables
+Create a `.env` file in the root directory:
 
-Create a `.env` file in the root directory and set the following variables:
-
-```env
+```
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-CLIENT_URL=http://localhost:3000
+MONGO_URI=mongodb://localhost:27017/sendzip
+FILE_EXPIRY_HOURS=24
 ```
 
-### Running the Application
-
+### 4️⃣ Start the server
 ```bash
-# Start the development server
 npm run dev
-
-# Or start normally
-npm start
 ```
 
-## Scripts
+---
 
+## 🔌 API Endpoints
+
+### 📤 Upload a file
+```
+POST /api/files/upload
+Body: multipart/form-data
+Field: file — .zip file
+```
+
+### 📥 Download a file
+```
+GET /api/files/:id
+```
+
+### ❌ Delete a file
+```
+DELETE /api/files/:id
+```
+
+---
+
+## ⏳ Automatic File Deletion
+A cron job runs every hour to delete expired files from MongoDB based on the `FILE_EXPIRY_HOURS` setting.
+
+---
+
+## 🧪 Testing
 ```bash
-# Run the server
-npm start
-
-# Run with nodemon (development)
-npm run dev
-
-# Run tests
 npm test
 ```
 
-## License
+---
 
-This project is licensed under the MIT License.
+## 📜 License
+MIT License © 2025
 
-## ✨ Author
+---
 
-**Pratik**  
-💼 [Portfolio](https://pratikshinde.in) || 🐙 [GitHub](https://github.com/pratik7262)
+## ✍ Author
+**Pratik Shinde**  
+🌐 [Portfolio Website](https://your-portfolio-link.com)  
+💻 [GitHub](https://github.com/your-github-username)
