@@ -97,5 +97,5 @@ MIT License © 2025
 ## ✍ Author
 
 **Pratik Shinde**  
-🌐 [Portfolio Website](https://your-portfolio-link.com)  
-💻 [GitHub](https://github.com/your-github-username)
+🌐 [Portfolio Website](https://pratikshinde.in)  
+💻 [GitHub](https://github.com/pratik7262)
