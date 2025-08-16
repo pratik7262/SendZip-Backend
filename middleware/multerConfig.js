@@ -3,7 +3,7 @@ const { GridFsStorage } = require("multer-gridfs-storage");
 require("dotenv").config();
 
 const storage = new GridFsStorage({
-  url: process.env.MONGO_URI,
+  url: process.env.FILES_MONGO_URI,
   options: { useNewUrlParser: true, useUnifiedTopology: true },
   file: (req, file) => {
     // if (file.mimetype !== "application/zip") {

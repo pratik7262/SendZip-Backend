@@ -26,7 +26,7 @@ app.use("/api/text", textRoutes);
 
 (async () => {
   try {
-    await connectToDB(); // Connect to MongoDB
+    await connectToDB();
     app.listen(PORT, () => {
       console.log(`App running at http://localhost:${PORT}`);
     });
