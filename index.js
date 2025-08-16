@@ -4,7 +4,7 @@ const zipRoutes = require("./routes/zip");
 const textRoutes = require("./routes/text");
 const initGridFS = require("./middleware/gridFS");
 const cors = require("cors");
-const { originURL } = require("./constants/urls");
+require("dotenv").config();
 
 const PORT = process.env.PORT || 5000;
 
@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: originURL,
+    origin: process.env.ORIGIN_URL,
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     exposedHeaders: ["Content-Disposition"],
