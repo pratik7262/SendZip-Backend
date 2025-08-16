@@ -6,10 +6,10 @@ let bucket = null;
 const initGridFS = async (req, res, next) => {
   try {
     if (!bucket) {
-      const db = await connectToDB(); // Ensure the database connection is established
+      const db = await connectToDB(); 
       bucket = new GridFSBucket(db, { bucketName: "uploads" });
     }
-    req.bucket = bucket; // Attach the bucket instance to the request
+    req.bucket = bucket; 
     next();
   } catch (error) {
     console.error("Error initializing GridFS:", error);

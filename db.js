@@ -1,7 +1,5 @@
 const { MongoClient } = require("mongodb");
-
-const URI =
-  "mongodb+srv://pratik:mBM1bvIrqh3NKVVM@cluster0.4jcyp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+require("dotenv").config();
 
 let db = null;
 
@@ -9,7 +7,7 @@ const connectToDB = async () => {
   if (db) return db;
 
   try {
-    const client = new MongoClient(URI, {
+    const client = new MongoClient(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

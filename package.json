@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
     "express": "^4.21.2",
     "gridfs-stream": "^1.1.1",
     "mongodb": "5.9.1",
